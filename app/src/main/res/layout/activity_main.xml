@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context="com.iconium.intro_to_saving_files_to_internal_memory.MainActivity">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/text_box"
+
+        />
+    <Button
+        android:id="@+id/create_text_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Text File"
+        android:layout_gravity="center"
+        android:fontFamily="monospace"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+
+        />
+
+
+
+</LinearLayout>

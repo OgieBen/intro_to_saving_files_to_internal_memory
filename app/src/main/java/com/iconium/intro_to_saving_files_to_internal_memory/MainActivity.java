@@ -1,10 +1,16 @@
 package com.iconium.intro_to_saving_files_to_internal_memory;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         text_box = (EditText) findViewById(R.id.text_box);
 
 
-//
+
 //         SharedPreferences settings = getSharedPreferences(PREF, 0);
 //         String retrievedText = settings.getString(EditViewContentPreferenceKey,"Got Nothing");
 //
@@ -70,34 +76,34 @@ public class MainActivity extends AppCompatActivity {
         /**
         * Attach an event listener to the {@link #create_text_file_button}
         * */
-//        create_text_file_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                // Retrieve string value from the EditText View element
-//                EditViewContents = (String) create_text_file_button
-//                                                    .getText()
-//                                                    .toString();
-//
-//                try {
-//                    // create simple text file;
-//                    FileOutputStream fos = openFileOutput(FILE, Context.MODE_PRIVATE);
-//                    fos.write(EditViewContents.getBytes());
-//                    fos.close();
-//
-//                    // clear EditView
-//                    updateEditView("");
-//
-//                    // Give success feedback
-//                    feedback(SUCCESS_MSG);
-//
-//                }catch (IOException e){
-//                    // Give error feedback
-//                    feedback(INTERNAL_STORAGE_ERROR);
-//                    Log.d("","Could not create File ");
-//                }
-//            }
-//        });
+        create_text_file_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Retrieve string value from the EditText View element
+                EditViewContents = (String) create_text_file_button
+                        .getText()
+                        .toString();
+
+                try {
+                    // create simple text file;
+                    FileOutputStream fos = openFileOutput(FILE, Context.MODE_PRIVATE);
+                    fos.write(EditViewContents.getBytes());
+                    fos.close();
+
+                    // clear EditView
+                    updateEditView("");
+
+                    // Give success feedback
+                    feedback(SUCCESS_MSG);
+
+                } catch (IOException e) {
+                    // Give error feedback
+                    feedback(INTERNAL_STORAGE_ERROR);
+                    Log.d("", "Could not create File ");
+                }
+            }
+        });
 
 
     }
@@ -139,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
 //        // Commit modifications!
 //        editor.commit();
     }
+/*
 
     @Override
     protected void onResume() {
@@ -166,4 +173,5 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
 
     }
+*/
 }

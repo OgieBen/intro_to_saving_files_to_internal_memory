@@ -1,16 +1,10 @@
 package com.iconium.intro_to_saving_files_to_internal_memory;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,54 +46,58 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+
+
+
         /*
-         * Get references of the layout view form the main activity's
+         * Get references of the layout view from main activity's
          * XML file.
          * */
         create_text_file_button = (Button) findViewById(R.id.create_text_file);
         text_box = (EditText) findViewById(R.id.text_box);
 
 
-
-
+//
 //         SharedPreferences settings = getSharedPreferences(PREF, 0);
 //         String retrievedText = settings.getString(EditViewContentPreferenceKey,"Got Nothing");
-//        // Log.e("Log in onCreate", retrievedText);
-//         text_box.setText(retrievedText);
+//
+//        // update EditView with data from SharedPreferences
+//         updateEditView(retrievedText);
+
 
 
 
         /**
         * Attach an event listener to the {@link #create_text_file_button}
         * */
-        create_text_file_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // Retrieve string value from the EditText View element
-                EditViewContents = (String) create_text_file_button
-                                                    .getText()
-                                                    .toString();
-
-                try {
-                    // create simple text file;
-                    FileOutputStream fos = openFileOutput(FILE, Context.MODE_PRIVATE);
-                    fos.write(EditViewContents.getBytes());
-                    fos.close();
-
-                    // clear EditView
-                    updateEditView("");
-
-                    // Give success feedback
-                    feedback(SUCCESS_MSG);
-
-                }catch (IOException e){
-                    // Give error feedback
-                    feedback(INTERNAL_STORAGE_ERROR);
-                    Log.d("","Could not create File ");
-                }
-            }
-        });
+//        create_text_file_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                // Retrieve string value from the EditText View element
+//                EditViewContents = (String) create_text_file_button
+//                                                    .getText()
+//                                                    .toString();
+//
+//                try {
+//                    // create simple text file;
+//                    FileOutputStream fos = openFileOutput(FILE, Context.MODE_PRIVATE);
+//                    fos.write(EditViewContents.getBytes());
+//                    fos.close();
+//
+//                    // clear EditView
+//                    updateEditView("");
+//
+//                    // Give success feedback
+//                    feedback(SUCCESS_MSG);
+//
+//                }catch (IOException e){
+//                    // Give error feedback
+//                    feedback(INTERNAL_STORAGE_ERROR);
+//                    Log.d("","Could not create File ");
+//                }
+//            }
+//        });
 
 
     }
@@ -137,9 +135,9 @@ public class MainActivity extends AppCompatActivity {
 //        SharedPreferences preferences = getSharedPreferences(PREF, 0);
 //        SharedPreferences.Editor editor = preferences.edit();
 //        editor.putString(EditViewContentPreferenceKey, EditViewContents);
-
-        // Commit modifications!
-        //editor.commit();
+//
+//        // Commit modifications!
+//        editor.commit();
     }
 
     @Override
@@ -149,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
         updateEditView(temp);
 
     }
-
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
